@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>This is my Title</title>
+       
+
+  <link href="static/css/style.css" rel="stylesheet">  
+
+    </head>
+
+    <body>
+
+    </body>
+        {% for message in get_flashed_messages() %}
+        <div class="alert">
+            <p> {{ message }} </p>
+        </div>
+    {% endfor %}
+    {% block content %}
+    {% endblock %}
+    </body>
+    </html>
+
+

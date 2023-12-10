@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>April 2023 Calendar</title>
+	<style>
+		/* Calendar */
+		.calendar {
+			width: 80%;
+			margin: auto;
+			border: 1px solid black;
+			padding: 20px;
+		}
+		
+		.calendar h1 {
+			text-align: center;
+		}
+		
+		.calendar table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+		
+		.calendar th {
+			background-color: #ccc;
+			padding: 10px;
+			text-align: center;
+		}
+		
+		.calendar td {
+			padding: 10px;
+			text-align: center;
+		}
+		
+		.calendar td.empty {
+			background-color: #f0f0f0;
+		}
+		
+		.calendar td.today {
+			background-color: #ffe4b5;
+		}
+		
+		.calendar td.selected {
+			background-color: #add8e6;
+		}
+	</style>
+</head>
+<body>
+	<div class="calendar">
+		<h1>April 2023</h1>
+		<table>
+			<thead>
+				<tr>
+					<th>Sun</th>
+					<th>Mon</th>
+					<th>Tue</th>
+					<th>Wed</th>
+					<th>Thu</th>
+					<th>Fri</th>
+					<th>Sat</th>
+				</tr>
+			</thead>
+			<tbody id="calendarBody">
+			</tbody>
+		</table>
+	</div>
+	
+	<script>
+		var month = 3; // April is 0-based index
+		var year = 2023;
+		showCalendar(month, year);
+
+		function showCalendar(month, year) {
+			var calendarBody = document.getElementById('calendarBody');
+			calendarBody.innerHTML = '';
+			
+			var daysInMonth = new Date(year, month+1, 0).getDate();
+			var firstDayOfMonth = new Date(year, month, 1).getDay();
+			var lastDayOfMonth = new Date(year, month, daysInMonth).getDay();
+			
+			var date = 1;
+			
+			for (var i = 0; i < 6; i++) {
+				var row = document.createElement('tr');
+				for (var j = 0; j < 7; j++) {
+					var cell = document.createElement('td');
+					if (i == 0 && j < firstDayOfMonth) {
+						// Add empty cells before the first day of the month
+						cell.innerHTML = '';
+						cell.className = 'empty';
+					} else if (date > daysInMonth) {
+						// Add empty cells after the last day of the month
+						cell.innerHTML = '';
+						cell.className = 'empty';
+					} else {
+						cell.innerHTML = date;
+						if (year == new Date().getFullYear() && month == new Date().getMonth() && date == new Date().getDate()) {
+							cell.className = 'today';
+						}
+						cell.addEventListener('click', function() {
+							var selectedCells = document.querySelectorAll('.selected');
+							for (var i = 0; i < selectedCells.length; i++) {
+								selectedCells[i].classList.remove('selected');
+							}
+							this.classList.add('selected');
+						});
+						date++;
+					}
+					row.appendChild(cell);
+				}
+				calendarBody.appendChild(row);
+			}
+		}
+	</script>
+</body>
+</

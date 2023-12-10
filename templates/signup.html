@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="static/css/signup_css.css">
+</head>
+
+
+<body>
+    <form name="form1" method="POST">
+        <div class="MyDiv2">
+            <p style="font-size:xx-large; text-align: center;"> Signup Page</p>
+            </div>
+        
+    <div class="MyDiv1">
+            <table class="MyTable">
+                <tr>
+                <td> <label style="font-size:x-large;">Set Your Email ID </label>  </td> </tr> <tr>
+                <td> <input class="i1" type="email" placeholder="Email ID" name="email" /> </td>
+                </tr>
+                <tr> </tr>
+                <tr> <td> <label style="font-size:x-large;"> Set Your Password </label> </td></tr>
+                <tr>  <td> <input class="i1" type="password" placeholder="Password" name="password">
+                </td> </tr>
+                <tr> <td><input type="submit" class="button-1" value="Signup" /> </td></tr>
+                <tr> <td><p> Already Signed Up? <a href="{{ url_for('login') }}">Login</a></p> </td></tr>
+
+        </div>
+    </form>
+    
+</body>
+
+</html>
+

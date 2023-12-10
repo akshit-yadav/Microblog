@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="static/css/login_css.css">
+</head>
+
+
+<body>
+    <form name="form1" method="POST">
+        <div class="MyDiv2">
+            <p style="font-size:xx-large; text-align: center;"> MicroBlog Project </p>
+            </div>
+    <div class="MyDiv1">
+            <table class="MyTable">
+                <tr>
+                <td> <label style="font-size:x-large;">Email ID </label>  </td> </tr> <tr>
+                <td> <input class="i1" type="email" placeholder="Email ID" name="email" /> </td>
+                </tr>
+                <tr> </tr>
+                <tr> <td> <label style="font-size:x-large;"> Password </label> </td>  </tr>
+                <tr>  <td> <input class="i1" type="password" placeholder="Password" name="password">
+                </td> </tr>
+                <tr> <td><input type="submit" class="button-1" value="Log In" /> </td></tr>
+                <tr> <td><p> Not a member? <a href="{{ url_for('signup') }}">Signup</a></p> </td></tr>
+
+        </div>
+    </form>
+    
+</body>
+
+</html>
+

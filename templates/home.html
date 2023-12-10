@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microblog</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+  <style>
+        .MyDiv__Intro{
+            animation: fadeInAnimation ease 3s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+        @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .MyDiv__Intro2{
+            animation: fadeInAnimation ease 3s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+        @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        
+    </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar__brand">
+      <img class="navbar__logo" src="/static/logo.svg" alt="The Microblog logo" />Microblog    
+    </div>
+    <ul class="navbar__navigation">
+      <li class="navbar__navigation-item">
+        <a href="#" class="navbar__link">Recent</a>
+      </li>
+      <li class="navbar__navigation-item">
+        <a href="https://calendar.google.com/calendar/u/0/r" target="_blank" class="navbar__link">Calendar</a>
+      </li>
+    </ul>
+  </header>
+  <div class="MyDiv__Intro">
+    <h1> Welcome to Microblog Website! </h1>
+    <p> Our aim is to create a delightful experience for our users 
+      who can share groundbreaking stories and events that happen 
+      in their lives. So why not join our microblogging community today? 
+      Sign up now and start sharing your thoughts with the world!</p>
+    </div>
+  <div class="MyDiv__Intro2">
+    <img src="/static/blog5.png" height="700" width="1450">
+    </div>
+  <main class="main">
+    
+    <section>
+      <h1>Add new entry</h1>
+      <form class="form" method="POST">
+        <p class="form__input">
+          <label for="entry" class="form__label">Entry contents:</label>
+          <textarea name="content" id="entry" class="form__textarea"></textarea>
+        </p>
+        <button type="submit" class="form__submit">Add entry</button>
+      </form>
+    </section>
+    <section>
+      <h1>Recent posts</h1>
+      {% for entry in entries %}
+        <article class="entry">
+          <div>
+            <h2 class="entry__title">{{ entry[0] | truncate(30, true) }}</h2>
+            <time class="entry__date" datetime="{{ entry[1] }}">• {{ entry[2] }}</time>
+          </div>
+          <p class="entry__content">
+            {{ entry[0] }}
+          </p>
+        </article>
+      {% endfor %}
+    </section>
+
+    <section>
+      <div style="background-color: #f9f9f9; padding: 20px; border-radius: 5px;">
+  <h2 style="font-size: 24px; font-weight: bold;">Join the conversation</h2>
+  <form>
+    <label for="name" style="font-size: 16px;">Name:</label>
+    <input type="text" id="name" name="name" style="padding: 8px; margin: 8px 0; width: 100%; box-sizing: border-box; border: 2px solid #ccc; border-radius: 4px;"><br><br>
+    <label for="comment" style="font-size: 16px;">Comment:</label>
+    <textarea id="comment" name="comment" style="padding: 8px; margin: 8px 0; width: 100%; height: 100px; box-sizing: border-box; border: 2px solid #ccc; border-radius: 4px;"></textarea><br><br>
+    <input type="submit" value="Submit" style="background-color: #3cd0ff; color: white; padding: 12px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+  </form>
+  <div style="margin-top: 20px;">
+    <h3 style="font-size: 20px; font-weight: bold;">Recent Comments</h3>
+    <ul style="list-style-type: none; padding: 0;">
+      <li style="margin: 10px 0; font-size: 16px;"><strong>John:</strong> Great article!</li>
+      <li style="margin: 10px 0; font-size: 16px;"><strong>Mary:</strong> I disagree with your point about...</li>
+      <li style="margin: 10px 0; font-size: 16px;"><strong>Bob:</strong> I have a question about...</li>
+    </ul>
+  </div>
+</div>
+
+      </section>
+
+  </main>
+  <footer class="footer">
+    <div class="footer__content">
+      <section class="left">
+        <a class="footer__item">Made by Akshit Yadav</a>
+        <a class="footer__item">Check out my other projects</a>
+      </section>
+      <section class="right">
+        <div class="footer__column">
+          <a class="footer__item">Recent</a>
+          <a class="footer__item">Calendar</a>
+        </div>
+        <div class="footer__column">
+          <a class="footer__item" href="#">About</a>
+          <a class="footer__item">How this was made</a>
+        </div>
+      </section>
+    </div>
+  </footer>
+</body>
+</html>
